@@ -1,0 +1,22 @@
+.Saved {
+  width: 20%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #5fd8d4;
+  transition: all 0.6s linear;
+}
+.Saved__info {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+.left {
+  right: -100%;
+}
+.right {
+  right: 0;
+}

@@ -1,0 +1,24 @@
+.Song {
+  display: flex;
+  flex-direction: column;
+}
+.Song__img {
+  width: 100%;
+  height: 300px;
+}
+.Song__compositor {
+  margin: 10px 0;
+}
+.Song__btn {
+  display: flex;
+  align-self: flex-end;
+  font-size: 24px;
+  margin: 10px 0;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+.Song__title {
+  text-align: center;
+  font-size: 24px;
+}

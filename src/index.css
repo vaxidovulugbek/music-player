@@ -6,8 +6,22 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.conteiner {
+  width: 400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  border: 1px solid #000;
+}
+.kk{
+  position: absolute;
+  right: 490px;
 }

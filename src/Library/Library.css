@@ -1,0 +1,12 @@
+.library {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: beige;
+  height: 100vh;
+  overflow-y: scroll;
+  transition: all 0.7s linear;
+}
+.menuleft {
+  left: -100%;
+}

@@ -1,0 +1,45 @@
+.Player {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.Player__music {
+  width: 85%;
+  margin: 0 6px;
+  -webkit-appearance: none;
+  cursor: pointer;
+  background-color: blueviolet;
+  border-radius: 18px;
+  height: 12px;
+}
+.Player-control{
+  width: 30%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.Player-subcontrol {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+.Player-control__icons {
+  font-size: 22px;
+  cursor: pointer;
+}
+.Player-shuffle {
+  font-size: 18px;
+  cursor: pointer;
+  color: rgb(72, 149, 152);
+
+}
+.Player-heart {
+  font-size: 18px;
+  cursor: pointer;
+  color: rgb(72, 149, 152);
+}
+.Bookmark {
+  margin-right: 8px;
+  cursor: pointer;
+}

@@ -1,0 +1,18 @@
+
+.library-element {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+.library-img {
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+}
+.library-element:hover {
+  background-color: aquamarine;
+}
+.blue {
+  background-color: aquamarine;
+}
