@@ -71,6 +71,7 @@ function Player({currentsong,isplaying,setisplaying,songInfo,setSongInfo,audiopl
     }
     setcurrentsong(songs[(prev - 1) % songs.length])
   }
+  // ===
 // =================================================================================================================================
   let nextMusic = () => {
     setcolor(false)
