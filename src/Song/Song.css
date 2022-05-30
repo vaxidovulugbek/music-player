@@ -1,6 +1,7 @@
 .Song {
   display: flex;
   flex-direction: column;
+  margin-top: 50px;
 }
 .Song__img {
   width: 100%;
