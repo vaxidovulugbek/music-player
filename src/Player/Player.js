@@ -19,9 +19,11 @@ function Player({currentsong,isplaying,setisplaying,songInfo,setSongInfo,audiopl
   let playsong = (e) => {
     if (isplaying) {
       audioplay.current.play()
+      // audioplay.current.pause()
     }
     else {
       audioplay.current.pause()
+      // audioplay.current.play()
     }
     setisplaying(!isplaying)
   }
@@ -55,6 +57,7 @@ function Player({currentsong,isplaying,setisplaying,songInfo,setSongInfo,audiopl
   }
 // =================================================================================================================================
   let prevMusic = () => {
+    setisplaying(false)
     setcolor(false)
     let prev = songs.findIndex((song) => song.id === currentsong.id)
     if (shufflecolor) {
@@ -71,9 +74,10 @@ function Player({currentsong,isplaying,setisplaying,songInfo,setSongInfo,audiopl
     }
     setcurrentsong(songs[(prev - 1) % songs.length])
   }
-  // ===
+
 // =================================================================================================================================
   let nextMusic = () => {
+    setisplaying(false)
     setcolor(false)
     let next = songs.findIndex((song) => song.id === currentsong.id)
     // setcurrentsong(songs[(next + 1) % songs.length ])
@@ -130,7 +134,8 @@ function Player({currentsong,isplaying,setisplaying,songInfo,setSongInfo,audiopl
           audioplay.current.play()
         })
       }
-      setisplaying(false)
+      // setisplaying(true)
+      // console.log(isplaying);
     }
     setsongs(newSongs)
   },[currentsong])
@@ -156,11 +161,12 @@ function Player({currentsong,isplaying,setisplaying,songInfo,setSongInfo,audiopl
         <FontAwesomeIcon onClick={shuffleHendler} className='Player-shuffle' icon={faShuffle} style={{color: shufflecolor ? "#000" : "#ccc"}} />
         <div className='Player-control'>
           <FontAwesomeIcon className='PREV Player-control__icons' onClick={prevMusic} icon={faBackwardStep} />
-          <FontAwesomeIcon className='PLAY Player-control__icons' icon={isplaying ? faPlay : faPause} onClick={playsong}/>
+          <FontAwesomeIcon className='PLAY Player-control__icons' icon={isplaying ? faPlay : faPause} onClick={playsong}/> 
+          {/* <FontAwesomeIcon className='PLAY Player-control__icons' icon={isplaying ? faPause : faPlay} onClick={playsong}/> */}
           <FontAwesomeIcon className='NEXT Player-control__icons' onClick={nextMusic} icon={faForwardStep} />
         </div>
-        <FontAwesomeIcon onClick={bookmarkHendler} className='Bookmark' icon={faBookmark} />
-        <FontAwesomeIcon className='Player-heart' onClick={saveHendler} icon={faHeart} style={{color: color ? "#000" : "#ccc"}}/>
+        {/* <FontAwesomeIcon onClick={bookmarkHendler} className='Bookmark' icon={faBookmark} /> */}
+        {/* <FontAwesomeIcon className='Player-heart' onClick={saveHendler} icon={faHeart} style={{color: color ? "#000" : "#ccc"}}/> */}
         <audio onTimeUpdate={updateTimeHendler} ref={audioplay} src={currentsong.audio}></audio>
       </div>
       <Saved Bookmark={Bookmark} newarr={newarr}/>

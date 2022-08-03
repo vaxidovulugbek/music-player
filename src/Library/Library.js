@@ -5,7 +5,7 @@ function Library({songs,setsongs,setcurrentsong,audioplay,isplaying,setcolor,set
   return (
     <div className={`library ${Menu ? "menuleft" : "menuright"}`}>
       {
-        songs.map(song => {
+        songs.map((song,i) => {
            return <LibrarySong song={song}
              songs={songs}
              setsongs={setsongs}
@@ -14,6 +14,7 @@ function Library({songs,setsongs,setcurrentsong,audioplay,isplaying,setcolor,set
              audioplay={audioplay}
              isplaying={isplaying}
              setcolor={setcolor}
+             key={i}
            />
         })
       }
