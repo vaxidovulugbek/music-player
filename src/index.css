@@ -25,3 +25,14 @@ code {
   position: absolute;
   right: 490px;
 }
+
+@media screen and (max-width:520px){
+  .conteiner {
+    width: 360px;
+  }
+}
+@media screen and (max-width:480px){
+  .conteiner {
+    width: 320px;
+  }
+}

@@ -2,3 +2,9 @@
   padding-top: 110px;
   min-height: 100vh;
 }
+@media screen and (max-width:520px){
+  .App {
+    min-height: auto;
+    padding-bottom: 110px;
+  }
+}
