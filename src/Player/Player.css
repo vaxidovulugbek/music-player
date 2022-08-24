@@ -5,19 +5,19 @@
   margin: 10px 0;
 }
 .Player__music {
-  width: 85%;
-  margin: 0 6px;
+  width: 100%;
   -webkit-appearance: none;
   cursor: pointer;
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
   border-radius: 18px;
   height: 12px;
 }
 .Player-control{
-  width: 30%;
+  width: 40%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .Player-subcontrol {
   display: flex;
@@ -42,4 +42,58 @@
 .Bookmark {
   margin-right: 8px;
   cursor: pointer;
+}
+.Player__time {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  bottom: 6px;
+  font-size: 13px;
+}
+.PREV {
+  color: #fff;
+}
+.NEXT {
+  color: #fff;
+}
+.PLAY {
+  font-size: 16px;
+}
+.PLAY-BTN {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  background-color: #fff !important;
+  border-radius: 50%;
+}
+.player-btn {
+  border: none;
+  background-color: transparent;
+}
+@media screen and (max-width:410px) {
+  .player-conent {
+    height: 25%;
+  }
+  .player-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .Player-subcontrol {
+    margin: 30px 0 0 0;
+  }
+  .Player__music {
+    height: 8px;
+    background: #4b4b4bb8 !important;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background-color: #051237;
+    border-radius: 50%;
+  }
 }

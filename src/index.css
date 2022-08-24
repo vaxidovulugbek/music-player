@@ -16,7 +16,7 @@ code {
     monospace;
 }
 .conteiner {
-  width: 400px;
+  width: 350px;
   margin: 0 auto;
   padding: 0 24px;
   border: 1px solid #000;
@@ -28,11 +28,17 @@ code {
 
 @media screen and (max-width:520px){
   .conteiner {
-    width: 360px;
+    width: 310px;
   }
 }
 @media screen and (max-width:480px){
   .conteiner {
-    width: 320px;
+    width: 280px;
+  }
+}
+@media screen and (max-width:410px){
+  .conteiner {
+    width: 100%;
+    border: none;
   }
 }

@@ -1,38 +1,23 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Player.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee ,faForwardStep, faBackwardStep, faPlay,faPause,faShuffle,faHeart,faBookmark } from '@fortawesome/free-solid-svg-icons'
+import { faForwardStep, faBackwardStep, faPlay,faPause,faShuffle} from '@fortawesome/free-solid-svg-icons'
 import Saved from '../Saved/Saved'
 
 function Player({currentsong,isplaying,setisplaying,songInfo,setSongInfo,audioplay,songs,setcurrentsong,setsongs,Bookmark,setBookmark,color,setcolor}) {
-
-  // let p = useRef(null)
-  // useEffect(() => {
-    //   console.log(p.current);
-    //   p.current.style.color = "blue"
-    // },[])
     
   let [newarr, setnewarr] = useState([])
-
   let [shufflecolor,setshufflecolor] = useState(false)
 
   let playsong = (e) => {
     if (isplaying) {
       audioplay.current.play()
-      // audioplay.current.pause()
     }
     else {
       audioplay.current.pause()
-      // audioplay.current.play()
     }
     setisplaying(!isplaying)
   }
-
-  // let audioplay = useRef(null)
-  // const [songInfo, setSongInfo] = useState({
-  //   currentTime:0,
-  //   durationTime:0,
-  // })
 
   let updateTimeHendler = (e) => {
     let current = e.target.currentTime
@@ -80,7 +65,6 @@ function Player({currentsong,isplaying,setisplaying,songInfo,setSongInfo,audiopl
     setisplaying(false)
     setcolor(false)
     let next = songs.findIndex((song) => song.id === currentsong.id)
-    // setcurrentsong(songs[(next + 1) % songs.length ])
     if (shufflecolor) {
       setcurrentsong(songs[(next + Math.floor(Math.random() * songs.length)) % songs.length ])
     }
@@ -92,7 +76,6 @@ function Player({currentsong,isplaying,setisplaying,songInfo,setSongInfo,audiopl
   let saveHendler = (e) => {
     setcolor(!color)
     if (color) {
-      // console.log(newarr);
         setnewarr(newarr.filter(item=> {
           return item.id !== currentsong.id
         }))
@@ -100,11 +83,8 @@ function Player({currentsong,isplaying,setisplaying,songInfo,setSongInfo,audiopl
     else {
       if(newarr.indexOf(currentsong) !== -1) return
       setnewarr([...newarr,currentsong])
-      // console.log(newarr);
     }
   }
-
-
 
 // =============================================================================================================================================
   let shuffleHendler = () => {
@@ -134,8 +114,6 @@ function Player({currentsong,isplaying,setisplaying,songInfo,setSongInfo,audiopl
           audioplay.current.play()
         })
       }
-      // setisplaying(true)
-      // console.log(isplaying);
     }
     setsongs(newSongs)
   },[currentsong])
@@ -144,32 +122,34 @@ function Player({currentsong,isplaying,setisplaying,songInfo,setSongInfo,audiopl
     setBookmark(!Bookmark)
   }
   return (
-   <div className='conteiner'> 
-      <div className='Player'>
-        <p className='Player__start'>{gettime(songInfo.currentTime)}</p>
-        <input style={{background: `linear-gradient(to right, ${currentsong.color[0]}, ${currentsong.color[1]})`}}
-           min={0} 
-           max={songInfo.durationTime || 0}
-           value={songInfo.currentTime } 
-           className='Player__music' 
-           type="range" 
-           onChange={draghendler} />
-
-        <p className='Player__end'>{gettime(songInfo.durationTime)}</p>
-      </div>
-      <div className='Player-subcontrol'>
-        <FontAwesomeIcon onClick={shuffleHendler} className='Player-shuffle' icon={faShuffle} style={{color: shufflecolor ? "#000" : "#ccc"}} />
-        <div className='Player-control'>
-          <FontAwesomeIcon className='PREV Player-control__icons' onClick={prevMusic} icon={faBackwardStep} />
-          <FontAwesomeIcon className='PLAY Player-control__icons' icon={isplaying ? faPlay : faPause} onClick={playsong}/> 
-          {/* <FontAwesomeIcon className='PLAY Player-control__icons' icon={isplaying ? faPause : faPlay} onClick={playsong}/> */}
-          <FontAwesomeIcon className='NEXT Player-control__icons' onClick={nextMusic} icon={faForwardStep} />
+   <div className='player-conent'>
+     <div className='conteiner'> 
+      <div className='player-info'>
+        <div className='Player'>
+          <input style={{background: `linear-gradient(to right, ${currentsong.color[0]}, ${currentsong.color[1]})`}}
+            min={0} 
+            max={songInfo.durationTime || 0}
+            value={songInfo.currentTime } 
+            className='Player__music' 
+            type="range" 
+            onChange={draghendler} />
         </div>
-        {/* <FontAwesomeIcon onClick={bookmarkHendler} className='Bookmark' icon={faBookmark} /> */}
-        {/* <FontAwesomeIcon className='Player-heart' onClick={saveHendler} icon={faHeart} style={{color: color ? "#000" : "#ccc"}}/> */}
-        <audio onTimeUpdate={updateTimeHendler} ref={audioplay} src={currentsong.audio}></audio>
+        <div className='Player__time'>
+          <p className='Player__start'>{gettime(songInfo.currentTime)}</p>
+          <p className='Player__end'>{gettime(songInfo.durationTime)}</p>
+        </div>
+        <div className='Player-subcontrol'>
+          <FontAwesomeIcon onClick={shuffleHendler} className='Player-shuffle' icon={faShuffle} style={{color: shufflecolor ? "#000" : "#ccc"}} />
+          <div className='Player-control'>
+            <button className='player-btn'onClick={prevMusic}><FontAwesomeIcon className='PREV Player-control__icons' icon={faBackwardStep} /></button>
+            <button className='player-btn PLAY-BTN' onClick={playsong}><FontAwesomeIcon className='PLAY Player-control__icons' icon={isplaying ? faPlay : faPause}/> </button>
+            <button className='player-btn' onClick={nextMusic}><FontAwesomeIcon className='NEXT Player-control__icons' icon={faForwardStep} /></button>
+          </div>
+          <audio onTimeUpdate={updateTimeHendler} ref={audioplay} src={currentsong.audio}></audio>
+        </div>
+        <Saved Bookmark={Bookmark} newarr={newarr}/>
       </div>
-      <Saved Bookmark={Bookmark} newarr={newarr}/>
+     </div>
    </div>
   )
 }

@@ -8,3 +8,12 @@
     padding-bottom: 110px;
   }
 }
+@media screen and (max-width:410px){
+  .App {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+    height: 100vh;
+  }
+}

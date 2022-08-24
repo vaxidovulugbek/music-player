@@ -22,3 +22,17 @@
   text-align: center;
   font-size: 24px;
 }
+@media screen and (max-width:410px){
+  .song-content {
+    height: 75%;
+  }
+  .Song__compositor {
+    margin: 30px 0;
+  }
+  .Song__btn {
+    margin: 24px 0;
+  }
+  .Song__img {
+    height: 330px;
+  }
+}
