@@ -19,21 +19,18 @@ function LibrarySong({song,songs,setsongs,id,setcurrentsong,audioplay,isplaying,
 
   let newSongs = songs.map(song => {
     if (song.id === id) {
-      // console.log("ok");
       return {
         ...song,
       active:true,
     }
     }
     else {
-      // console.log("no ok");
       return {
         ...song,
         active:false,
       }
     }
   })
-  // setsongs(newSongs)
   
   return (
      <div onClick={selectLibraryHender} className={`library-element ${song.active ? 'blue' : ''}`}>

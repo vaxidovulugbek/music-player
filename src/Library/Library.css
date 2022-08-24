@@ -10,3 +10,8 @@
 .menuleft {
   left: -100%;
 }
+@media screen and (max-width:710px) {
+  .library {
+     transition: all 0.3s linear;
+  }
+}
