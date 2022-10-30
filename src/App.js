@@ -24,7 +24,8 @@ function App() {
 
   return (
     <div className="App" style={{background: `linear-gradient(to right, ${currentsong.color[0]}, ${currentsong.color[1]})`, transition: 'all 1s ease'}}  >
-      <Song currentsong={currentsong} Bookmark={Bookmark} setBookmark={setBookmark} Menu={Menu} setMenu={setMenu}/>
+     <div className='conteiner'>
+     <Song currentsong={currentsong} Bookmark={Bookmark} setBookmark={setBookmark} Menu={Menu} setMenu={setMenu}/>
       <Player isplaying={isplaying}
        setisplaying={setisplaying}
        currentsong={currentsong} 
@@ -40,6 +41,7 @@ function App() {
        color={color}
        setcolor={setcolor}
        />
+     </div>
        <Library isplaying={isplaying} audioplay={audioplay} songs={songs} setsongs={setsongs} setcurrentsong={setcurrentsong} setcolor={setcolor} setMenu={setMenu} Menu={Menu}/>
     </div>
   );

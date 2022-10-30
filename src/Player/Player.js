@@ -123,7 +123,7 @@ function Player({currentsong,isplaying,setisplaying,songInfo,setSongInfo,audiopl
   }
   return (
    <div className='player-conent'>
-     <div className='conteiner'> 
+     {/* <div className='conteiner'>  */}
       <div className='player-info'>
         <div className='Player'>
           <input style={{background: `linear-gradient(to right, ${currentsong.color[0]}, ${currentsong.color[1]})`}}
@@ -149,7 +149,7 @@ function Player({currentsong,isplaying,setisplaying,songInfo,setSongInfo,audiopl
         </div>
         <Saved Bookmark={Bookmark} newarr={newarr}/>
       </div>
-     </div>
+     {/* </div> */}
    </div>
   )
 }
